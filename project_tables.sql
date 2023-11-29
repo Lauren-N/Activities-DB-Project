@@ -8,10 +8,10 @@
 -- TODO: add drop table statements
 DROP TABLE IF EXISTS Activities_in;
 DROP TABLE IF EXISTS Activities;
-DROP TABLE IF EXISTS Clubs;
 DROP TABLE IF EXISTS Clubs_in;
-DROP TABLE IF EXISTS Courses;
+DROP TABLE IF EXISTS Clubs;
 DROP TABLE IF EXISTS Courses_in;
+DROP TABLE IF EXISTS Courses;
 DROP TABLE IF EXISTS Student;
 
 -- TODO: add create table statements
@@ -25,6 +25,13 @@ CREATE TABLE Student(
     PRIMARY KEY(student_id)
 );
 
+CREATE TABLE Courses(
+    course_class_id CHAR(100),
+    course_class_name CHAR(100),
+    course_long_desc CHAR(250),
+    PRIMARY KEY(course_class_id)
+);
+
 CREATE TABLE Courses_in(
     student_id CHAR(100),
     class_id CHAR(100),
@@ -36,30 +43,22 @@ CREATE TABLE Courses_in(
     FOREIGN KEY(class_id) REFERENCES Courses(course_class_id)
 );
 
-CREATE TABLE Courses(
-    course_class_id CHAR(100),
-    course_class_name CHAR(100),
-    course_long_desc CHAR(250),
-    PRIMARY KEY(course_class_id)
+CREATE TABLE Clubs(
+    club_name CHAR(100),
+    long_desc CHAR(200),
+    club_size INT,
+    PRIMARY KEY(club_name)
 );
 
 CREATE TABLE Clubs_in(
     student_id CHAR(100),
-    club_id CHAR(100),
-    club_name CHAR(100),
+    student_club_name CHAR(100),
     year_joined YEAR,
     club_role CHAR(100),
     long_desc CHAR(200),
     club_size INT,
-    PRIMARY KEY(student_id, club_id)
-);
-
-CREATE TABLE Clubs(
-    club_id CHAR(100),
-    club_name CHAR(100),
-    long_desc CHAR(200),
-    club_size INT,
-    PRIMARY KEY(club_id)
+    PRIMARY KEY(student_id, student_club_name),
+    FOREIGN KEY(student_club_name) REFERENCES Clubs(club_name)
 );
 
 CREATE TABLE Activities(
@@ -74,7 +73,8 @@ CREATE TABLE Activities_in(
     activity_name CHAR(100),
     year_joined YEAR,
     long_desc CHAR(200),
-    PRIMARY KEY(student_id, activity_name)
+    PRIMARY KEY(student_id, activity_name),
+    FOREIGN KEY(activity_name) REFERENCES Activities(activity_name)
 );
 
 
@@ -129,26 +129,25 @@ INSERT INTO Courses_in VALUES ('lnguyen9', 'ENVS193', 'Digital Ecology', 2021, '
 INSERT INTO Courses_in VALUES ('lnguyen9', 'ENGL101', 'Writing', 2021, 'B', 'This course helps students develop the foundational skills of critical reading, thinking, analysis, and writing.');
 INSERT INTO Courses_in VALUES ('lnguyen9', 'THEA100', 'Introduction to Theatre Arts', 2021, 'A', 'An introductory survey of the history, aesthetics, and literature of the theatre, and the various areas of theatrical production.');
 
+-- inserting clubs
+INSERT INTO Clubs VALUES ('Women in Computing','Club to support women in the computing field', 30);
+INSERT INTO Clubs VALUES ('Association of Computer Machinery', 'Club to support students in the computing field', 130);
+INSERT INTO Clubs VALUES ('Society of Women Engineers', 'Club to support women in the engineering field', 45);
+INSERT INTO Clubs VALUES ('Japan Club','Japanese cultural club', 35);
 
 -- inserting clubs in
-INSERT INTO Clubs_in VALUES ('lnguyen9', 'WIC', 'Women in Computing', 2022, 'President', 'Club to support women in the computing field', 30);
-INSERT INTO Clubs_in VALUES ('lnguyen9', 'ACM', 'Association of Computer Machinery', 2021, 'Member', 'Club to support students in the computing field', 130);
-INSERT INTO Clubs_in VALUES ('lnguyen9', 'SWE', 'Society of Women Engineers', 2022, 'Member', 'Club to support women in the engineering field', 45);
-INSERT INTO Clubs_in VALUES ('lnguyen9', 'JPN', 'Japan Club', 2022, 'Member', 'Japanese cultural club', 35);
+INSERT INTO Clubs_in VALUES ('lnguyen9','Women in Computing', 2022, 'President', 'Club to support women in the computing field', 30);
+INSERT INTO Clubs_in VALUES ('lnguyen9','Association of Computer Machinery', 2021, 'Member', 'Club to support students in the computing field', 130);
+INSERT INTO Clubs_in VALUES ('lnguyen9','Society of Women Engineers', 2022, 'Member', 'Club to support women in the engineering field', 45);
+INSERT INTO Clubs_in VALUES ('lnguyen9','Japan Club', 2022, 'Member', 'Japanese cultural club', 35);
 
--- inserting clubs
-INSERT INTO Clubs VALUES ('WIC', 'Women in Computing','Club to support women in the computing field', 30);
-INSERT INTO Clubs VALUES ('ACM', 'Association of Computer Machinery', 'Club to support students in the computing field', 130);
-INSERT INTO Clubs VALUES ('SWE', 'Society of Women Engineers', 'Club to support women in the engineering field', 45);
-INSERT INTO Clubs VALUES ('JPN', 'Japan Club','Japanese cultural club', 35);
+-- inserting activities
+INSERT INTO Activities VALUES ('Knitting', 'Recreational', 'Using yarn and needles to create blankets and scarfs');
+INSERT INTO Activities VALUES ('Movies', 'Recreational', 'Watching different movies across a wide range of genres');
+INSERT INTO Activities VALUES ('Photography', 'Educational', 'Capturing different subjects with different cameras');
 
 -- inserting activities in
 INSERT INTO Activities_in VALUES ('lnguyen9', 'Knitting', 2010, 'Using yarn and needles to create blankets and scarfs');
 INSERT INTO Activities_in VALUES ('mgiusti', 'Knitting', 2022, 'Using yarn and needles to create blankets and scarfs');
 INSERT INTO Activities_in VALUES ('lnguyen9', 'Movies', 2020, 'Watching different movies across a wide range of genres');
 INSERT INTO Activities_in VALUES ('lnguyen9', 'Photography', 2010, 'Capturing different subjects with different cameras');
-
--- inserting activities
-INSERT INTO Activities VALUES ('Knitting', 'Recreational', 'Using yarn and needles to create blankets and scarfs');
-INSERT INTO Activities VALUES ('Movies', 'Recreational', 'Watching different movies across a wide range of genres');
-INSERT INTO Activities VALUES ('Photography', 'Educational', 'Capturing different subjects with different cameras');
