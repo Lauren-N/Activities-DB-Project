@@ -2,7 +2,7 @@
  * NAME: Lauren Nguyen
  * CLASS: CPSC321
  * DATE: 11/28/23
- * DESCRIPTION: SQL PROJECT QUERIES
+ * DESCRIPTION: SQL PROJECT TABLES
  **********************************************************************/
 
 -- TODO: add drop table statements
@@ -85,6 +85,14 @@ INSERT INTO Student VALUES ('oharrington', 'Olivia', 'Harrington', 20, 'Gonzaga'
 INSERT INTO Student VALUES ('mshrull', 'Madeleine', 'Shrull', 20, 'Gonzaga', 'Psychology');
 INSERT INTO Student VALUES ('mmikesell', 'Marlee', 'Mikesell', 21, 'Gonzaga', 'Political Science');
 INSERT INTO Student VALUES ('etollett', 'Ellie', 'Tollett', 20, 'Gonzaga', 'Psychology');
+INSERT INTO Student VALUES ('mtiu', 'Maya', 'Tiu', 20, 'Gonzaga', 'Computer Science');
+INSERT INTO Student VALUES ('dmaxwell', 'Delainey', 'Maxwell', 21, 'Gonzaga', 'Computer Science');
+INSERT INTO Student VALUES ('tfrausto', 'Talia', 'Frausto', 20, 'Gonzaga', 'Computer Science');
+INSERT INTO Student VALUES ('adomingo', 'Alicia', 'Domingo', 20, 'Gonzaga', 'Computer Science');
+INSERT INTO Student VALUES ('lchin', 'Lauren', 'Chin', 19, 'Gonzaga', 'Computer Science');
+
+
+
 
 -- inserting values for courses in DB
 INSERT INTO Courses VALUES ('CPSC321', 'Database Management Systems', 'Introduction to relational database concepts and techniques.');
@@ -134,12 +142,23 @@ INSERT INTO Clubs VALUES ('Women in Computing','Club to support women in the com
 INSERT INTO Clubs VALUES ('Association of Computer Machinery', 'Club to support students in the computing field', 130);
 INSERT INTO Clubs VALUES ('Society of Women Engineers', 'Club to support women in the engineering field', 45);
 INSERT INTO Clubs VALUES ('Japan Club','Japanese cultural club', 35);
+INSERT INTO Clubs VALUES ('Example Club','Example club', 21);
 
 -- inserting clubs in
 INSERT INTO Clubs_in VALUES ('lnguyen9','Women in Computing', 2022, 'President', 'Club to support women in the computing field', 30);
+INSERT INTO Clubs_in VALUES ('mtiu','Women in Computing', 2022, 'Member', 'Club to support women in the computing field', 30);
+INSERT INTO Clubs_in VALUES ('dmaxwell','Women in Computing', 2022, 'Member', 'Club to support women in the computing field', 30);
+INSERT INTO Clubs_in VALUES ('tfrausto','Women in Computing', 2022, 'Member', 'Club to support women in the computing field', 30);
+INSERT INTO Clubs_in VALUES ('lchin','Women in Computing', 2022, 'Member', 'Club to support women in the computing field', 30);
+INSERT INTO Clubs_in VALUES ('adomingo','Women in Computing', 2022, 'Member', 'Club to support women in the computing field', 30);
 INSERT INTO Clubs_in VALUES ('lnguyen9','Association of Computer Machinery', 2021, 'Member', 'Club to support students in the computing field', 130);
 INSERT INTO Clubs_in VALUES ('lnguyen9','Society of Women Engineers', 2022, 'Member', 'Club to support women in the engineering field', 45);
 INSERT INTO Clubs_in VALUES ('lnguyen9','Japan Club', 2022, 'Member', 'Japanese cultural club', 35);
+INSERT INTO Clubs_in VALUES ('mgiusti','Japan Club', 2022, 'Member', 'Social Media Chair', 35);
+INSERT INTO Clubs_in VALUES ('oharrington','Japan Club', 2022, 'Member', 'Japanese cultural club', 35);
+INSERT INTO Clubs_in VALUES ('etollett','Japan Club', 2022, 'Member', 'Japanese cultural club', 35);
+INSERT INTO Clubs_in VALUES ('mmikesell','Japan Club', 2022, 'Member', 'Japanese cultural club', 35);
+INSERT INTO Clubs_in VALUES ('mshrull','Japan Club', 2022, 'Member', 'Japanese cultural club', 35);
 
 -- inserting activities
 INSERT INTO Activities VALUES ('Knitting', 'Recreational', 'Using yarn and needles to create blankets and scarfs');
