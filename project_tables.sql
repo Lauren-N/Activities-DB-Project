@@ -90,24 +90,33 @@ INSERT INTO Student VALUES ('dmaxwell', 'Delainey', 'Maxwell', 21, 'Gonzaga', 'C
 INSERT INTO Student VALUES ('tfrausto', 'Talia', 'Frausto', 20, 'Gonzaga', 'Computer Science');
 INSERT INTO Student VALUES ('adomingo', 'Alicia', 'Domingo', 20, 'Gonzaga', 'Computer Science');
 INSERT INTO Student VALUES ('lchin', 'Lauren', 'Chin', 19, 'Gonzaga', 'Computer Science');
-
-
+INSERT INTO Student VALUES ('gaustin', 'Gordon', 'Austin', 21, 'Gonzaga', 'Biology');
 
 
 -- inserting values for courses in DB
+
+INSERT INTO Courses VALUES ('MUSC131', 'Applied Trumpet', 'Individual lessons in applied trumpet, open to music majors, minors, and non-music majors');
+INSERT INTO Courses VALUES ('CHEM230', 'Organic Chemistry 1', 'Essential concepts in bonding and structure, acid-base chemistry, reactivity and synthesis of functional groups, nomenclature, and mechanisms of fundamental organic reactions.');
+INSERT INTO Courses VALUES ('CHEM231', 'Organic Chemistry 2', 'A significant focus of the course is on aromatic compounds and carbonyl chemistry.');
+INSERT INTO Courses VALUES ('FILM202', 'Hollywood Cinema', 'This course serves as an introduction to the history of film as a medium, ranging from its origins to the current moment.');
+INSERT INTO Courses VALUES ('JPNE201', 'Intermediate Japanese', 'Intensive oral work to develop fluency in the language; written composition and reading at the intermediate level. 200 kanji in addition to those introduced in JPNE 102.');
+INSERT INTO Courses VALUES ('JPNE101', 'Elementary Japanese', 'Grammar, composition, conversation, and discussion of cultural topics. Mastery of hiragana, katakana, and approximately 50 kanji.');
+INSERT INTO Courses VALUES ('SPAN321', 'Medieval Literature', 'This survey course is designed to give students a broad understanding of Spanish literature from its origins to the XVIII century.');
+INSERT INTO Courses VALUES ('PSYC416', 'Psych of Gender', 'A review of both the theory and empirical literature investigating the psychology of gender, including biological cognitive, developmental and psychosocial models.');
+INSERT INTO Courses VALUES ('PSYC340', 'Psych of Personality', 'A survey and critique of major theories of personality.');
+INSERT INTO Courses VALUES ('SOCI223', 'Sex, Gender, and Society', 'Explores theories and research on the constructions of masculinity and femininity and how these influence our individual lives and social institutions.');
+INSERT INTO Courses VALUES ('PSYC357', 'Lifespan Development', 'Lifespan development explores the physical, cognitive, and socio-emotional changes that humans experience across the lifespan from birth through old age.');
 INSERT INTO Courses VALUES ('CPSC321', 'Database Management Systems', 'Introduction to relational database concepts and techniques.');
 INSERT INTO Courses VALUES ('CPSC333', 'Mobile App Development','This course provides an introduction to mobile application development.');
 INSERT INTO Courses VALUES ('CPSC323', 'Machine Learning and Intelligent Systems', 'A look into ML...');
 INSERT INTO Courses VALUES ('CPSC346', 'Operating Systems', 'Study of operating systems internals.');
 INSERT INTO Courses VALUES ('MATH321', 'Statistics for Experimentalists', 'An applied statistics course for those with calculus preparation.');
 INSERT INTO Courses VALUES ('LIT105', 'Literature of the Open Road', 'This course introduces students to literary study through the exploration of a particular theme.');
-
 INSERT INTO Courses VALUES ('BIO105', 'Info Flow in Biol Systems', 'This course provides a foundation in the principles of biology by examining the fundamental role of information in generating the properties of life.');
 INSERT INTO Courses VALUES ('CPSC223', 'Algorithm and Abstract Data Structures', 'Algorithm analysis using Big-O notation, sorting, heaps, balanced binary search trees, and hash tables.');
 INSERT INTO Courses VALUES ('CPSC222', 'Into to Data Science', 'This course provides an introduction to the underlying ideas, concepts, and techniques used in data science.');
 INSERT INTO Courses VALUES ('HIST201', 'History of the US', 'This course surveys North American history from the continents first peopling through the end of the U.S. Civil War.');
 INSERT INTO Courses VALUES ('MATH231', 'Discrete Structures', 'A study of propositional logic, set theory, functions, algorithms, divisibility, introductory number theory, elementary proof techniques, counting techniques, recursive definitions, mathematical induction, and graph theory.');
-
 INSERT INTO Courses VALUES ('CPSC121', 'Computer Science 1', 'An introduction to programming. Emphasis is on how to design, code, debug, and document programs using good programming style.');
 INSERT INTO Courses VALUES ('MATH157', 'Calculus 1', 'An introduction to calculus for engineering, science and mathematics students, with an emphasis on conceptual understanding, problem solving, and modeling.');
 INSERT INTO Courses VALUES ('EDPE157', 'Yoga', 'This class is designed to promote individual fitness for total mind/body health.');
@@ -115,8 +124,9 @@ INSERT INTO Courses VALUES ('ENVS193', 'Digital Ecology', 'The First-Year Semina
 INSERT INTO Courses VALUES ('ENGL101', 'Writing', 'This course helps students develop the foundational skills of critical reading, thinking, analysis, and writing.');
 INSERT INTO Courses VALUES ('THEA100', 'Introduction to Theatre Arts', 'An introductory survey of the history, aesthetics, and literature of the theatre, and the various areas of theatrical production.');
 
-
 -- inserting values for courses a student is in
+
+
 INSERT INTO Courses_in VALUES ('lnguyen9', 'CPSC321', 'Database Management Systems', 2023, 'A', 'Introduction to relational database concepts and techniques.');
 INSERT INTO Courses_in VALUES ('lnguyen9', 'CPSC333', 'Mobile App Development', 2023, 'B', 'This course provides an introduction to mobile application development.');
 INSERT INTO Courses_in VALUES ('lnguyen9', 'CPSC323', 'Machine Learning and Intelligent Systems', 2023, 'A', 'A look into ML...');
@@ -137,12 +147,51 @@ INSERT INTO Courses_in VALUES ('lnguyen9', 'ENVS193', 'Digital Ecology', 2021, '
 INSERT INTO Courses_in VALUES ('lnguyen9', 'ENGL101', 'Writing', 2021, 'B', 'This course helps students develop the foundational skills of critical reading, thinking, analysis, and writing.');
 INSERT INTO Courses_in VALUES ('lnguyen9', 'THEA100', 'Introduction to Theatre Arts', 2021, 'A', 'An introductory survey of the history, aesthetics, and literature of the theatre, and the various areas of theatrical production.');
 
+INSERT INTO Courses_in VALUES ('mtiu', 'BIO105', 'Info Flow in Biol Systems', 2022, 'A', 'This course provides a foundation in the principles of biology by examining the fundamental role of information in generating the properties of life.');
+INSERT INTO Courses_in VALUES ('mtiu', 'CPSC223', 'Algorithm and Abstract Data Structures', 2023, 'A', 'Algorithm analysis using Big-O notation, sorting, heaps, balanced binary search trees, and hash tables.');
+INSERT INTO Courses_in VALUES ('mtiu', 'CPSC222', 'Into to Data Science', 2022, 'A', 'This course provides an introduction to the underlying ideas, concepts, and techniques used in data science.');
+INSERT INTO Courses_in VALUES ('mtiu', 'MATH321', 'Statistics for Experimentalists', 2023, 'B', 'An applied statistics course for those with calculus preparation.');
+INSERT INTO Courses_in VALUES ('mtiu', 'CPSC121', 'Computer Science 1', 2021, 'A', 'An introduction to programming. Emphasis is on how to design, code, debug, and document programs using good programming style.');
+
+INSERT INTO Courses_in VALUES ('dmaxwell', 'CPSC121', 'Computer Science 1', 2021, 'A', 'An introduction to programming. Emphasis is on how to design, code, debug, and document programs using good programming style.');
+INSERT INTO Courses_in VALUES ('tfrausto', 'CPSC121', 'Computer Science 1', 2021, 'A', 'An introduction to programming. Emphasis is on how to design, code, debug, and document programs using good programming style.');
+INSERT INTO Courses_in VALUES ('adomingo', 'CPSC121', 'Computer Science 1', 2021, 'A', 'An introduction to programming. Emphasis is on how to design, code, debug, and document programs using good programming style.');
+INSERT INTO Courses_in VALUES ('lchin', 'CPSC121', 'Computer Science 1', 2021, 'A', 'An introduction to programming. Emphasis is on how to design, code, debug, and document programs using good programming style.');
+
+INSERT INTO Courses_in VALUES ('mgiusti', 'JPNE201', 'Intermediate Japanese', 2023, 'A', 'Intensive oral work to develop fluency in the language; written composition and reading at the intermediate level. 200 kanji in addition to those introduced in JPNE 102.');
+INSERT INTO Courses_in VALUES ('mgiusti', 'JPNE101', 'Elementary Japanese', 2021, 'B', 'Grammar, composition, conversation, and discussion of cultural topics. Mastery of hiragana, katakana, and approximately 50 kanji.');
+INSERT INTO Courses_in VALUES ('mshrull', 'SPAN321', 'Medieval Literature', 2023, 'A', 'This survey course is designed to give students a broad understanding of Spanish literature from its origins to the XVIII century.');
+INSERT INTO Courses_in VALUES ('mshrull', 'PSYC416', 'Psych of Gender', 2023, 'A', 'A review of both the theory and empirical literature investigating the psychology of gender, including biological cognitive, developmental and psychosocial models.');
+INSERT INTO Courses_in VALUES ('mshrull', 'PSYC340', 'Psych of Personality', 2023, 'B' ,'A survey and critique of major theories of personality.');
+INSERT INTO Courses_in VALUES ('mshrull', 'SOCI223', 'Sex, Gender, and Society',2023, 'B', 'Explores theories and research on the constructions of masculinity and femininity and how these influence our individual lives and social institutions.');
+INSERT INTO Courses_in VALUES ('mshrull', 'PSYC357', 'Lifespan Development', 2023, 'B', 'Lifespan development explores the physical, cognitive, and socio-emotional changes that humans experience across the lifespan from birth through old age.');
+INSERT INTO Courses_in VALUES ('oharrington', 'SPAN321', 'Medieval Literature', 2023, 'A', 'This survey course is designed to give students a broad understanding of Spanish literature from its origins to the XVIII century.');
+INSERT INTO Courses_in VALUES ('etollett', 'SPAN321', 'Medieval Literature', 2023, 'A', 'This survey course is designed to give students a broad understanding of Spanish literature from its origins to the XVIII century.');
+INSERT INTO Courses_in VALUES ('oharrington', 'PSYC416', 'Psych of Gender', 2023, 'A', 'A review of both the theory and empirical literature investigating the psychology of gender, including biological cognitive, developmental and psychosocial models.');
+INSERT INTO Courses_in VALUES ('oharrington', 'PSYC340', 'Psych of Personality', 2023, 'A' ,'A survey and critique of major theories of personality.');
+INSERT INTO Courses_in VALUES ('oharrington', 'SOCI223', 'Sex, Gender, and Society',2023, 'A', 'Explores theories and research on the constructions of masculinity and femininity and how these influence our individual lives and social institutions.');
+
+INSERT INTO Courses_in VALUES ('gaustin', 'MUSC131', 'Applied Trumpet', 2022, 'C', 'Individual lessons in applied trumpet, open to music majors, minors, and non-music majors');
+INSERT INTO Courses_in VALUES ('gaustin', 'CHEM230', 'Organic Chemistry 1', 2022, 'A', 'Essential concepts in bonding and structure, acid-base chemistry, reactivity and synthesis of functional groups, nomenclature, and mechanisms of fundamental organic reactions.');
+INSERT INTO Courses_in VALUES ('gaustin', 'CHEM231', 'Organic Chemistry 2', 2023, 'A', 'A significant focus of the course is on aromatic compounds and carbonyl chemistry.');
+INSERT INTO Courses_in VALUES ('lnguyen9', 'FILM202', 'Hollywood Cinema', 2021, 'A', 'This course serves as an introduction to the history of film as a medium, ranging from its origins to the current moment.');
+INSERT INTO Courses_in VALUES ('etollett', 'FILM202', 'Hollywood Cinema', 2021, 'A', 'This course serves as an introduction to the history of film as a medium, ranging from its origins to the current moment.');
+INSERT INTO Courses_in VALUES ('mgiusti', 'FILM202', 'Hollywood Cinema', 2022, 'D', 'This course serves as an introduction to the history of film as a medium, ranging from its origins to the current moment.');
+
+
+
 -- inserting clubs
 INSERT INTO Clubs VALUES ('Women in Computing','Club to support women in the computing field', 30);
 INSERT INTO Clubs VALUES ('Association of Computer Machinery', 'Club to support students in the computing field', 130);
 INSERT INTO Clubs VALUES ('Society of Women Engineers', 'Club to support women in the engineering field', 45);
 INSERT INTO Clubs VALUES ('Japan Club','Japanese cultural club', 35);
-INSERT INTO Clubs VALUES ('Example Club','Example club', 21);
+INSERT INTO Clubs VALUES ('Adventure Seekers','A club for thrill-seekers and outdoor enthusiasts', 35);
+INSERT INTO Clubs VALUES ('Bookworms Society','Dedicated to the love of literature and meaningful discussions', 28);
+INSERT INTO Clubs VALUES ('Artistry Collective','A space for artists to collaborate and showcase their creativity', 18);
+INSERT INTO Clubs VALUES ('Film Buffs Society','Passionate about cinema and film-making', 16);
+INSERT INTO Clubs VALUES ('Culinary Creators','Exploring the world of flavors and culinary arts', 20);
+INSERT INTO Clubs VALUES ('Environmental Guardians','Working towards a greener and sustainable future', 30);
+
 
 -- inserting clubs in
 INSERT INTO Clubs_in VALUES ('lnguyen9','Women in Computing', 2022, 'President', 'Club to support women in the computing field', 30);
@@ -162,11 +211,54 @@ INSERT INTO Clubs_in VALUES ('mshrull','Japan Club', 2022, 'Member', 'Japanese c
 
 -- inserting activities
 INSERT INTO Activities VALUES ('Knitting', 'Recreational', 'Using yarn and needles to create blankets and scarfs');
-INSERT INTO Activities VALUES ('Movies', 'Recreational', 'Watching different movies across a wide range of genres');
+INSERT INTO Activities VALUES ('Movies', 'Educational', 'Watching different movies across a wide range of genres');
 INSERT INTO Activities VALUES ('Photography', 'Educational', 'Capturing different subjects with different cameras');
+INSERT INTO Activities VALUES ('Hiking', 'Recreational', 'Exploring nature and scenic landscapes through outdoor hiking adventures');
+INSERT INTO Activities VALUES ('Board Game Night', 'Recreational', 'Enjoying social interactions and friendly competition through various board games');
+INSERT INTO Activities VALUES ('Yoga in the Park', 'Recreational', 'Relaxing and rejuvenating the body and mind with outdoor yoga sessions');
+INSERT INTO Activities VALUES ('Gardening', 'Educational', 'Learning about plant care, landscaping, and creating beautiful gardens');
+INSERT INTO Activities VALUES ('Karaoke', 'Recreational', 'Singing and having a great time with friends in a karaoke event');
+INSERT INTO Activities VALUES ('Video Games', 'Recreational', 'Playing a variety of different online games with friends or solo');
+INSERT INTO Activities VALUES ('Painting', 'Educational', 'Exploring the evolution of art movements and significant artistic periods');
+
 
 -- inserting activities in
 INSERT INTO Activities_in VALUES ('lnguyen9', 'Knitting', 2010, 'Using yarn and needles to create blankets and scarfs');
-INSERT INTO Activities_in VALUES ('mgiusti', 'Knitting', 2022, 'Using yarn and needles to create blankets and scarfs');
+INSERT INTO Activities_in VALUES ('gaustin', 'Video Games', 2007, 'Playing a variety of different online games with friends or solo');
+INSERT INTO Activities_in VALUES ('mmikesell', 'Video Games', 2021, 'Playing a variety of different online games with friends or solo');
+INSERT INTO Activities_in VALUES ('mgiusti', 'Knitting', 2010, 'Using yarn and needles to create blankets and scarfs');
+INSERT INTO Activities_in VALUES ('etollett', 'Knitting', 2013, 'Using yarn and needles to create blankets and scarfs');
 INSERT INTO Activities_in VALUES ('lnguyen9', 'Movies', 2020, 'Watching different movies across a wide range of genres');
+INSERT INTO Activities_in VALUES ('etollett', 'Movies', 2011, 'Watching different movies across a wide range of genres');
+INSERT INTO Activities_in VALUES ('oharrington', 'Movies', 2021, 'Watching different movies across a wide range of genres');
 INSERT INTO Activities_in VALUES ('lnguyen9', 'Photography', 2010, 'Capturing different subjects with different cameras');
+INSERT INTO Activities_in VALUES ('oharrington', 'Photography', 2015, 'Capturing different subjects with different cameras');
+INSERT INTO Activities_in VALUES ('lnguyen9', 'Hiking', 2016, 'Exploring nature and scenic landscapes through outdoor hiking adventures');
+INSERT INTO Activities_in VALUES ('mmikesell', 'Hiking', 2010, 'Exploring nature and scenic landscapes through outdoor hiking adventures');
+INSERT INTO Activities_in VALUES ('mgiusti', 'Hiking', 2021, 'Exploring nature and scenic landscapes through outdoor hiking adventures');
+INSERT INTO Activities_in VALUES ('etollett', 'Hiking', 2020, 'Exploring nature and scenic landscapes through outdoor hiking adventures');
+INSERT INTO Activities_in VALUES ('oharrington', 'Hiking', 2014, 'Exploring nature and scenic landscapes through outdoor hiking adventures');
+INSERT INTO Activities_in VALUES ('mshrull', 'Hiking', 2012, 'Exploring nature and scenic landscapes through outdoor hiking adventures');
+INSERT INTO Activities_in VALUES ('mtiu', 'Board Game Night', 2008, 'Enjoying social interactions and friendly competition through various board games');
+INSERT INTO Activities_in VALUES ('dmaxwell', 'Board Game Night', 2015, 'Enjoying social interactions and friendly competition through various board games');
+INSERT INTO Activities_in VALUES ('tfrausto', 'Board Game Night', 2022, 'Enjoying social interactions and friendly competition through various board games');
+INSERT INTO Activities_in VALUES ('gaustin', 'Board Game Night', 2021, 'Enjoying social interactions and friendly competition through various board games');
+INSERT INTO Activities_in VALUES ('lchin', 'Yoga in the Park', 2020, 'Relaxing and rejuvenating the body and mind with outdoor yoga sessions');
+INSERT INTO Activities_in VALUES ('mmikesell', 'Yoga in the Park', 2023, 'Relaxing and rejuvenating the body and mind with outdoor yoga sessions');
+INSERT INTO Activities_in VALUES ('adomingo', 'Yoga in the Park', 2023, 'Relaxing and rejuvenating the body and mind with outdoor yoga sessions');
+INSERT INTO Activities_in VALUES ('etollett', 'Gardening', 2005, 'Learning about plant care, landscaping, and creating beautiful gardens');
+INSERT INTO Activities_in VALUES ('mshrull', 'Gardening', 2017, 'Learning about plant care, landscaping, and creating beautiful gardens');
+INSERT INTO Activities_in VALUES ('mmikesell', 'Gardening', 2023, 'Learning about plant care, landscaping, and creating beautiful gardens');
+INSERT INTO Activities_in VALUES ('mshrull', 'Karaoke', 2020, 'Singing and having a great time with friends in a karaoke event');
+INSERT INTO Activities_in VALUES ('etollett', 'Painting', 2013, 'Exploring the evolution of art movements and significant artistic periods');
+INSERT INTO Activities_in VALUES ('lchin', 'Karaoke', 2020, 'Singing and having a great time with friends in a karaoke event');
+INSERT INTO Activities_in VALUES ('lchin', 'Painting', 2014, 'Exploring the evolution of art movements and significant artistic periods');
+INSERT INTO Activities_in VALUES ('adomingo', 'Karaoke', 2022, 'Singing and having a great time with friends in a karaoke event');
+INSERT INTO Activities_in VALUES ('adomingo', 'Painting', 2018, 'Exploring the evolution of art movements and significant artistic periods');
+
+
+
+
+
+
+
