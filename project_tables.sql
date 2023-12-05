@@ -194,6 +194,12 @@ INSERT INTO Clubs VALUES ('Environmental Guardians','Working towards a greener a
 
 
 -- inserting clubs in
+INSERT INTO Clubs_in VALUES ('mtiu', 'Environmental Guardians', 2020, 'President','Working towards a greener and sustainable future', 30);
+INSERT INTO Clubs_in VALUES ('dmaxwell', 'Environmental Guardians', 2021, 'Member','Working towards a greener and sustainable future', 30);
+INSERT INTO Clubs_in VALUES ('tfrausto', 'Environmental Guardians', 2021, 'Member','Working towards a greener and sustainable future', 30);
+INSERT INTO Clubs_in VALUES ('lchin', 'Environmental Guardians', 2022, 'Member','Working towards a greener and sustainable future', 30);
+INSERT INTO Clubs_in VALUES ('adomingo', 'Environmental Guardians', 2020, 'Member','Working towards a greener and sustainable future', 30);
+INSERT INTO Clubs_in VALUES ('mgiusti', 'Environmental Guardians', 2020, 'Member','Working towards a greener and sustainable future', 30);
 INSERT INTO Clubs_in VALUES ('lnguyen9','Women in Computing', 2022, 'President', 'Club to support women in the computing field', 30);
 INSERT INTO Clubs_in VALUES ('mtiu','Women in Computing', 2022, 'Member', 'Club to support women in the computing field', 30);
 INSERT INTO Clubs_in VALUES ('dmaxwell','Women in Computing', 2022, 'Member', 'Club to support women in the computing field', 30);
@@ -208,6 +214,13 @@ INSERT INTO Clubs_in VALUES ('oharrington','Japan Club', 2022, 'Member', 'Japane
 INSERT INTO Clubs_in VALUES ('etollett','Japan Club', 2022, 'Member', 'Japanese cultural club', 35);
 INSERT INTO Clubs_in VALUES ('mmikesell','Japan Club', 2022, 'Member', 'Japanese cultural club', 35);
 INSERT INTO Clubs_in VALUES ('mshrull','Japan Club', 2022, 'Member', 'Japanese cultural club', 35);
+INSERT INTO Clubs_in VALUES ('gaustin', 'Bookworms Society', 2019, 'Vice President', 'Dedicated to the love of literature and meaningful discussions', 28);
+INSERT INTO Clubs_in VALUES ('lnguyen9', 'Bookworms Society', 2019, 'President', 'Dedicated to the love of literature and meaningful discussions', 28);
+INSERT INTO Clubs_in VALUES ('adomingo', 'Bookworms Society', 2019, 'Member', 'Dedicated to the love of literature and meaningful discussions', 28);
+INSERT INTO Clubs_in VALUES ('lchin', 'Bookworms Society', 2019, 'Member', 'Dedicated to the love of literature and meaningful discussions', 28);
+INSERT INTO Clubs_in VALUES ('mmikesell', 'Bookworms Society', 2019, 'Member', 'Dedicated to the love of literature and meaningful discussions', 28);
+INSERT INTO Clubs_in VALUES ('mshrull', 'Bookworms Society', 2019, 'Member', 'Dedicated to the love of literature and meaningful discussions', 28);
+
 
 -- inserting activities
 INSERT INTO Activities VALUES ('Knitting', 'Recreational', 'Using yarn and needles to create blankets and scarfs');
