@@ -94,7 +94,7 @@
 </head>
 <body>
     <header>
-        <h1>Add Data!</h1>
+        <h1>Add a club!</h1>
     </header>
     <section>
         <p>In this section, you are able to look at all the activities, courses, and clubs you have entered!
@@ -106,33 +106,36 @@
     </section>
     <form method="POST" id="addDataForm" onsubmit="return submitForm()">
         <table>
-            <tr>
-                <td>Type:</td>
-                <td>
-                    <select name="typeTable" id="typeTable">
-                        <option value="add_clubs.html">Club</option>
-                        <option value="add_activity.html">Activities</option>
-                        <option value="add_courses.html">Courses</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" name="userName"></td>
+                </tr>
+
+                <tr>
+                    <td>Club name:</td>
+                    <td><input type="text" name="clubName"></td>
+                </tr>
+                <tr>
+                    <td>What year did you join?</td>
+                    <td><input type="text" name="year"></td>
+                </tr>
+                <tr>
+                    <td>Club role:</td>
+                    <td><input type="text" name="role"></td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td><input type="text" name="desc"></td>
+                </tr>
+                <tr>
+                    <td>Club size:</td>
+                    <td><input type="text" name="size"></td>
+                </tr>
+                
+                
                 <td><input type="submit" value="Submit!"/></td>
             </tr>
         </table>
     </form>
-
-    <script>
-        function submitForm() {
-            // Get the selected option value
-            var selectedOption = document.getElementById("typeTable").value;
-
-            // Set the action attribute of the form based on the selected option
-            document.getElementById("addDataForm").action = selectedOption;
-
-            // Continue with form submission
-            return true;
-        }
-    </script>
 </body>
 </html>
