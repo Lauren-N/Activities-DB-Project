@@ -94,34 +94,41 @@
   $st_student->bind_result($student_id, $first_name, $last_name, $age, $college, $major);
 
   // output student information
-  echo "<p>Your information! </p>\n";
+  echo "<p>Your activity information! </p>\n";
   echo "<ul>\n";
   while ($st_student->fetch()) {
-    echo "<li>" . $student_id . ", " . $first_name . ", " . $last_name . $age . ", "  . $college . ", " . $major . ", " . "</li>\n";
+    echo "<li>" . $student_id . ", " . $first_name . ", " . $last_name . ", " . $age . ", "  . $college . ", " . $major . ", " . "</li>\n";
   }
   echo "</ul>\n";
 
   // create the prepared statement for club information
-  $q_club = "SELECT * FROM Clubs_in WHERE student_id = ?";
-  $st_club = $cn->stmt_init();
-  $st_club->prepare($q_club);
-  $st_club->bind_param("s", $username); // "s" for string
+  $q_activity = "SELECT * FROM Activities_in WHERE student_id = ?";
+  $st_activity = $cn->stmt_init();
+  $st_activity->prepare($q_activity);
+  $st_activity->bind_param("s", $username); // "s" for string
 
   // execute the statement and bind the result (to vars)
-  $st_club->execute();
-  $st_club->bind_result($student_id, $club_name, $year, $role, $desc, $size);
+  $st_activity->execute();
+  $st_activity->bind_result($student_id, $activity_name, $year, $desc);
 
   // output club information
-  echo "<p>Your club information! </p>\n";
-  echo "<ul>\n";
-  while ($st_club->fetch()) {
-    echo "<li>" . $student_id . ", " . $club_name . ", " . $year .  ", ". $role . ", "  . $desc . ", " . $size . "</li>\n";
+  echo "<h2>Activity Information</h2>";
+  echo "<table border='1'>";
+  echo "<thead><tr><th>ID</th><th>Activity Name</th><th>Year</th><th>Description</th></tr></thead>";
+  echo "<tbody>";
+  while ($st_activity->fetch()) {
+    echo "<tr>";
+    echo "<td>$student_id</td>";
+    echo "<td>$activity_name</td>";
+    echo "<td>$year</td>";
+    echo "<td>$desc</td>";
+    echo "</tr>";
   }
-  echo "</ul>\n";
+  echo "</tbody></table>";
 
   // clean up
   $st_student->close();
-  $st_club->close();
+  $st_activity->close();
   $cn->close();
 ?>
 </body>

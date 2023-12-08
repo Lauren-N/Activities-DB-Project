@@ -97,31 +97,41 @@
   echo "<p>Your information! </p>\n";
   echo "<ul>\n";
   while ($st_student->fetch()) {
-    echo "<li>" . $student_id . ", " . $first_name . ", " . $last_name . $age . ", "  . $college . ", " . $major . ", " . "</li>\n";
+    echo "<li>" . $student_id . ", " . $first_name . ", " . $last_name . ", " . $age . ", "  . $college . ", " . $major . ", " . "</li>\n";
   }
   echo "</ul>\n";
 
   // create the prepared statement for club information
-  $q_club = "SELECT * FROM Clubs_in WHERE student_id = ?";
-  $st_club = $cn->stmt_init();
-  $st_club->prepare($q_club);
-  $st_club->bind_param("s", $username); // "s" for string
+  $q_course = "SELECT * FROM Courses_in WHERE student_id = ?";
+  $st_course = $cn->stmt_init();
+  $st_course->prepare($q_course);
+  $st_course->bind_param("s", $username); // "s" for string
 
   // execute the statement and bind the result (to vars)
-  $st_club->execute();
-  $st_club->bind_result($student_id, $club_name, $year, $role, $desc, $size);
+  $st_course->execute();
+  $st_course->bind_result($student_id, $class_id, $class_name, $year_compl, $grade, $desc);
 
   // output club information
-  echo "<p>Your club information! </p>\n";
-  echo "<ul>\n";
-  while ($st_club->fetch()) {
-    echo "<li>" . $student_id . ", " . $club_name . ", " . $year .  ", ". $role . ", "  . $desc . ", " . $size . "</li>\n";
+  // Output course information in a table
+  echo "<h2>Course Information</h2>";
+  echo "<table border='1'>";
+  echo "<thead><tr><th>ID</th><th>Class ID</th><th>Class Name</th><th>Year Completed</th><th>Grade</th><th>Description</th></tr></thead>";
+  echo "<tbody>";
+  while ($st_course->fetch()) {
+    echo "<tr>";
+    echo "<td>$student_id</td>";
+    echo "<td>$class_id</td>";
+    echo "<td>$class_name</td>";
+    echo "<td>$year_compl</td>";
+    echo "<td>$grade</td>";
+    echo "<td>$desc</td>";
+    echo "</tr>";
   }
-  echo "</ul>\n";
+  echo "</tbody></table>";
 
   // clean up
   $st_student->close();
-  $st_club->close();
+  $st_course->close();
   $cn->close();
 ?>
 </body>

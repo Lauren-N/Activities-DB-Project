@@ -97,7 +97,7 @@
   echo "<p>Your information! </p>\n";
   echo "<ul>\n";
   while ($st_student->fetch()) {
-    echo "<li>" . $student_id . ", " . $first_name . ", " . $last_name . $age . ", "  . $college . ", " . $major . ", " . "</li>\n";
+    echo "<li>" . $student_id . ", " . $first_name . ", " . $last_name . ", " . $age . ", "  . $college . ", " . $major . ", " . "</li>\n";
   }
   echo "</ul>\n";
 
@@ -112,12 +112,21 @@
   $st_club->bind_result($student_id, $club_name, $year, $role, $desc, $size);
 
   // output club information
-  echo "<p>Your club information! </p>\n";
-  echo "<ul>\n";
+  echo "<h2>Club Information</h2>";
+  echo "<table border='1'>";
+  echo "<thead><tr><th>ID</th><th>Club Name</th><th>Year</th><th>Role</th><th>Description</th><th>Size</th></tr></thead>";
+  echo "<tbody>";
   while ($st_club->fetch()) {
-    echo "<li>" . $student_id . ", " . $club_name . ", " . $year .  ", ". $role . ", "  . $desc . ", " . $size . "</li>\n";
+    echo "<tr>";
+    echo "<td>$student_id</td>";
+    echo "<td>$club_name</td>";
+    echo "<td>$year</td>";
+    echo "<td>$role</td>";
+    echo "<td>$desc</td>";
+    echo "<td>$size</td>";
+    echo "</tr>";
   }
-  echo "</ul>\n";
+  echo "</tbody></table>";
 
   // clean up
   $st_student->close();

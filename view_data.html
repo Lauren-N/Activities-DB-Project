@@ -1,11 +1,142 @@
-<html >
-    <body >
-        <form action ="view_data.php" method ="POST">
-            <select name ="userChoice">
-                <option value="lnguyen9">lnguyen9</option>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <!-- Add your CSS styling here if needed -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffddf4;
+        }
 
-            </select >
-            <input type ="submit" value ="Execute Query"/>
-        </form >
-    </body >
-</html >
+        header {
+            font-size: 30px;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            background-color: #e75480;
+        }
+        nav form {
+        display: inline-block;
+        }
+
+        nav {
+            background-color: #f49ac2;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+        }
+
+        section {
+            padding: 2em;
+        }
+        form input[type="submit"] {
+            padding: 1em 2em;
+            border: none;
+            border-radius: 8px;
+            margin-right: 50px;
+            display: inline-block; /* Display the elements inline */
+            vertical-align: middle; /* Align vertically with each other */
+            font-size: 10px;
+            text-decoration: none;
+            color: #fff; /* Text color for the form buttons */
+            padding: 0.5em 1em;
+            margin: 0 1em;
+            border-radius: 5px;
+            background-color: #9f4576;
+            font-family: 'Roboto', sans-serif; /* Choose your desired font */
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #7c3250; /* Change the background color of the submit button on hover */
+        }
+
+
+        form input[type="text"] {
+            padding: 0.5em;
+            font-size: 16px;
+            display: inline-block; /* Display the elements inline */
+            vertical-align: middle; /* Align vertically with each other */
+        }
+
+        form select {
+            padding: 0.5em;
+            font-size: 16px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        section p {
+            margin-top: 20px; /* Add some space between the image and the paragraph */
+            font-family: 'Arial', sans-serif;
+            font-size: 15px;
+            line-height: 1.5;
+            font-weight: 400;
+            text-align: left; 
+            color: #ab274f ;
+            padding: 1%;
+            background-color: #fff0f5; /* Background color for the section */
+            border: 1px solid #ff1493; /* Border around the section */
+            border-radius: 8px; /* Rounded corners for a modern look */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>View Data!</h1>
+    </header>
+    <section>
+        <p>In this section, you are able to look at all the activities, courses, and clubs you have entered!
+            Simply do so by:
+                <br>1. Entering your username (unique GU username)
+                <br>2. Selecting what type of result you want to see i.e Activities, Courses, or Clubs
+                <br>3. (Optional) Filter search for something specific
+        </p>
+    </section>
+    <form method="POST" id="viewDataForm" onsubmit="return submitForm()">
+        <table>
+            <tr>
+                <td>Username:</td>
+                <td><input type="text" name="userName"></td>
+            </tr>
+            <tr>
+                <td>Type:</td>
+                <td>
+                    <select name="typeTable" id="typeTable">
+                        <option value="view_clubs.php">Club</option>
+                        <option value="view_activities.php">Activities</option>
+                        <option value="view_courses.php">Courses</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit!"/></td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function submitForm() {
+            // Get the selected option value
+            var selectedOption = document.getElementById("typeTable").value;
+
+            // Set the action attribute of the form based on the selected option
+            document.getElementById("viewDataForm").action = selectedOption;
+
+            // Continue with form submission
+            return true;
+        }
+    </script>
+</body>
+</html>
