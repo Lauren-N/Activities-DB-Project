@@ -64,6 +64,30 @@
             display: inline-block; /* Display the elements inline */
             vertical-align: middle; /* Align vertically with each other */
         }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #9f4576;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
 
     </style>
 </head>
@@ -94,12 +118,21 @@
   $st_student->bind_result($student_id, $first_name, $last_name, $age, $college, $major);
 
   // output student information
-  echo "<p>Your activity information! </p>\n";
-  echo "<ul>\n";
+  echo "<h2>Student Information</h2>";
+  echo "<table border='1'>";
+  echo "<thead><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Age</th><th>College</th><th>Major</th></tr></thead>";
+  echo "<tbody>";
   while ($st_student->fetch()) {
-    echo "<li>" . $student_id . ", " . $first_name . ", " . $last_name . ", " . $age . ", "  . $college . ", " . $major . ", " . "</li>\n";
+    echo "<tr>";
+    echo "<td>$student_id</td>";
+    echo "<td>$first_name</td>";
+    echo "<td>$last_name</td>";
+    echo "<td>$age</td>";
+    echo "<td>$college</td>";
+    echo "<td>$major</td>";
+    echo "</tr>";
   }
-  echo "</ul>\n";
+  echo "</tbody></table>";
 
   // create the prepared statement for club information
   $q_activity = "SELECT * FROM Activities_in WHERE student_id = ?";
