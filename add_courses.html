@@ -104,34 +104,31 @@
                 <br>3. (Optional) Filter search for something specific
         </p>
     </section>
-    <form method="POST" id="addDataForm" onsubmit="return submitForm()">
+    <form method="POST" action="add_courses.php">
         <table>
-                <tr>
-                    <td>Username:</td>
-                    <td><input type="text" name="userName"></td>
-                </tr>
-
-                <tr>
-                    <td>Club name:</td>
-                    <td><input type="text" name="clubName"></td>
-                </tr>
-                <tr>
-                    <td>What year did you join?</td>
-                    <td><input type="text" name="year"></td>
-                </tr>
-                <tr>
-                    <td>Club role:</td>
-                    <td><input type="text" name="role"></td>
-                </tr>
-                <tr>
-                    <td>Description:</td>
-                    <td><input type="text" name="desc"></td>
-                </tr>
-                <tr>
-                    <td>Club size:</td>
-                    <td><input type="text" name="size"></td>
-                </tr>
-                
+            <td>Username:</td>
+                <td><input type="text" name="userName"></td>
+            </tr>
+            <tr>
+            <td>Course id:</td>
+                <td><input type="text" name="courseID"></td>
+            </tr>
+            <tr>
+            <td>Course name:</td>
+                <td><input type="text" name="courseName"></td>
+            </tr>
+            <tr>
+            <td>What year did you complete this course?</td>
+                <td><input type="text" name="year"></td>
+            </tr>
+            <tr>
+            <td>What grade did you recieve?</td>
+                <td><input type="text" name="grade"></td>
+            </tr>
+            <tr>
+            <td>Description:</td>
+                <td><input type="text" name="desc"></td>
+            </tr>
                 
                 <td><input type="submit" value="Submit!"/></td>
             </tr>

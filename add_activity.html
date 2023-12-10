@@ -104,7 +104,7 @@
                 <br>3. (Optional) Filter search for something specific
         </p>
     </section>
-    <form method="POST" id="addDataForm" onsubmit="return submitForm()">
+    <form method="POST" action="add_activity.php">
         <table>
                 <tr>
                     <td>Username:</td>
@@ -112,24 +112,16 @@
                 </tr>
 
                 <tr>
-                    <td>Club name:</td>
-                    <td><input type="text" name="clubName"></td>
+                    <td>Activity name:</td>
+                    <td><input type="text" name="activityName"></td>
                 </tr>
                 <tr>
                     <td>What year did you join?</td>
                     <td><input type="text" name="year"></td>
                 </tr>
                 <tr>
-                    <td>Club role:</td>
-                    <td><input type="text" name="role"></td>
-                </tr>
-                <tr>
                     <td>Description:</td>
                     <td><input type="text" name="desc"></td>
-                </tr>
-                <tr>
-                    <td>Club size:</td>
-                    <td><input type="text" name="size"></td>
                 </tr>
                 
                 
