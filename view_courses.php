@@ -93,7 +93,9 @@
     </style>
 </head>
 <body>
-<h1>Viewing Data!</h1>
+    <header>
+    <h1>Viewing Course Data!</h1>
+    </header>
 <?php
   // get connection info
   $config = parse_ini_file("config.ini");   // better to hide this!

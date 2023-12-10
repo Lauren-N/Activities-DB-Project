@@ -93,7 +93,7 @@
 </head>
 <body>
 <header>
-    <h1>Viewing Activity Data!</h1>
+    <h1>Viewing Club Data!</h1>
     </header>
 <?php
   // get connection info
@@ -107,63 +107,51 @@
   $cn = mysqli_connect($server, $username, $password, $database);
  
 // get the username from the form:
-  $username = $_POST["userName"];
-
-  // create the prepared statement for student information
-  $q_student = "SELECT * FROM Student WHERE student_id = ?";
-  $st_student = $cn->stmt_init();
-  $st_student->prepare($q_student);
-  $st_student->bind_param("s", $username); // "s" for string
-
-  // execute the statement and bind the result (to vars)
-  $st_student->execute();
-  $st_student->bind_result($student_id, $first_name, $last_name, $age, $college, $major);
-
-  // output student information
-  echo "<h2>Student Information</h2>";
-  echo "<table border='1'>";
-  echo "<thead><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Age</th><th>College</th><th>Major</th></tr></thead>";
-  echo "<tbody>";
-  while ($st_student->fetch()) {
-    echo "<tr>";
-    echo "<td>$student_id</td>";
-    echo "<td>$first_name</td>";
-    echo "<td>$last_name</td>";
-    echo "<td>$age</td>";
-    echo "<td>$college</td>";
-    echo "<td>$major</td>";
-    echo "</tr>";
-  }
-  echo "</tbody></table>";
+  $clubName = $_POST["clubName"];
+  $desc = $_POST["desc"];
+  $clubSize = $_POST["size"];
 
   // create the prepared statement for club information
-  $q_activity = "SELECT * FROM Activities_in WHERE student_id = ?";
-  $st_activity = $cn->stmt_init();
-  $st_activity->prepare($q_activity);
-  $st_activity->bind_param("s", $username); // "s" for string
+  $q_club = "INSERT INTO Clubs VALUES (?, ?, ?)";
+  $st_club = $cn->stmt_init();
+  $st_club->prepare($q_club);
+  $st_club->bind_param("sss", $clubName, $desc, $clubSize); // "s" for string
+  
+  // execute the statement
+  $insertResult = $st_club->execute();
+
+  $q_club_view = "SELECT * FROM Clubs";
+  $st_club_view = $cn->stmt_init();
+  $st_club_view->prepare($q_club_view);
 
   // execute the statement and bind the result (to vars)
-  $st_activity->execute();
-  $st_activity->bind_result($student_id, $activity_name, $year, $desc);
-
-  // output club information
-  echo "<h2>Activity Information</h2>";
-  echo "<table border='1'>";
-  echo "<thead><tr><th>ID</th><th>Activity Name</th><th>Year</th><th>Description</th></tr></thead>";
-  echo "<tbody>";
-  while ($st_activity->fetch()) {
-    echo "<tr>";
-    echo "<td>$student_id</td>";
-    echo "<td>$activity_name</td>";
-    echo "<td>$year</td>";
-    echo "<td>$desc</td>";
-    echo "</tr>";
+  $st_club_view->execute();
+  $st_club_view->bind_result($club_name, $desc, $size);
+  
+  // check if the insertion was successful
+  if ($insertResult) {
+      echo "<p>Club information inserted successfully!</p>";
+  } else {
+      echo "<p>Error inserting club information: " . $st_club->error . "</p>";
   }
-  echo "</tbody></table>";
+
+    // output club information
+    echo "<h2>Club Information</h2>";
+    echo "<table border='1'>";
+    echo "<thead><tr><th>Club Name</th><th>Description</th><th>Size</th></tr></thead>";
+    echo "<tbody>";
+    while ($st_club_view->fetch()) {
+      echo "<tr>";
+      echo "<td>$club_name</td>";
+      echo "<td>$desc</td>";
+      echo "<td>$size</td>";
+      echo "</tr>";
+    }
+    echo "</tbody></table>";
 
   // clean up
-  $st_student->close();
-  $st_activity->close();
+  $st_club_view->close();
+  $st_club->close();
   $cn->close();
 ?>
 </body>
