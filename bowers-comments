@@ -1,0 +1,6 @@
+Part 3
+Grade: 2/2
+No foreign keys allowed in ERD! (e.g., Clubs_in studentid)
+Need cardinality constraints for all relationship type edges
+Not sure what the difference is between Clubs_in and the relationship
+between students and clubs.
