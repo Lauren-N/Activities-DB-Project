@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website</title>
+    <title>Edit Courses</title>
     <!-- Add your CSS styling here if needed -->
     <style>
         body {
@@ -94,7 +94,7 @@
 </head>
 <body>
     <header>
-        <h1>Add a course!</h1>
+        <h1>Update a course!</h1>
     </header>
     <section>
         <p>In this section, you are add different activities, courses, and clubs you have entered!
@@ -102,7 +102,7 @@
                 <br>1. Selecting what type of result you want to add i.e Activities, Courses, or Clubs
                 <br>2. If you do not see your particular activity in the table above, please go to the home page and add it.
     </section>
-    <form method="POST" action="add_courses.php">
+    <form method="POST" action="edit_courses.php">
         <table>
             <td>Username:</td>
                 <td><input type="text" name="userName"></td>
@@ -111,6 +111,10 @@
             <td>Course id:</td>
                 <td><input type="text" name="courseID"></td>
             </tr>
+            <tr>
+                <td>New course id:</td>
+                    <td><input type="text" name="newCourseID"></td>
+                </tr>
             <tr>
             <td>Course name:</td>
                 <td><input type="text" name="courseName"></td>

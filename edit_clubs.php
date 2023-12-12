@@ -2,7 +2,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website</title>
+    <title>Edit Data</title>
+    <!-- Add your CSS styling here if needed -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -92,7 +93,7 @@
 </head>
 <body>
 <header>
-    <h1>Viewing Course Data!</h1>
+    <h1>Viewing Club Data!</h1>
     </header>
 <?php
   // get connection info
@@ -105,59 +106,74 @@
   // create the connection
   $cn = mysqli_connect($server, $username, $password, $database);
  
-// get the username from the form:
+  // get the username from the form:
   $username = $_POST["userName"];
-  $courseID = $_POST["courseID"];
-  $courseName = $_POST["courseName"];
+  $originalClubName = $_POST["clubName"];
   $year = $_POST["year"];
-  $grade = $_POST["grade"];
   $desc = $_POST["desc"];
+  $newClubName = $_POST["newClubName"];  // Add this line
 
-  // create the prepared statement for club information
-  $q_course = "INSERT INTO Courses_in VALUES (?, ?, ?, ?, ?, ?)";
-  $st_course = $cn->stmt_init();
-  $st_course->prepare($q_course);
-  $st_course->bind_param("ssssss", $username, $courseID, $courseName, $year, $grade, $desc); // "s" for string
-  
-  // execute the statement
-  $insertResult = $st_course->execute();
-
-  $q_course_view = "SELECT * FROM Courses_in WHERE student_id = ?";
-  $st_course_view = $cn->stmt_init();
-  $st_course_view->prepare($q_course_view);
-  $st_course_view->bind_param("s", $username); // "s" for string
-
-  // execute the statement and bind the result (to vars)
-  $st_course_view->execute();
-  $st_course_view->bind_result($username, $courseID, $courseName, $year, $grade, $desc);
-  
-  // check if the insertion was successful
-  if ($insertResult) {
-      echo "<p>Course information inserted successfully!</p>";
+  // Check if the new club name is the same as the original one
+  if ($newClubName == $originalClubName) {
+      // Update the other columns without modifying the primary key
+      $q_club = "UPDATE Clubs_in SET year_joined = ?, long_desc = ? WHERE student_id = ? AND student_club_name = ?";
+      $st_club = $cn->stmt_init();
+      $st_club->prepare($q_club);
+      $st_club->bind_param("ssss", $year, $desc, $username, $originalClubName); // "s" for string
+      $updateResult = $st_club->execute();
   } else {
-      echo "<p>Error inserting course information: " . $st_course->error . "</p>";
+      // Check if the new club name already exists for the user
+      $checkDuplicateQuery = "SELECT COUNT(*) FROM Clubs_in WHERE student_id = ? AND student_club_name = ?";
+      $st_checkDuplicate = $cn->stmt_init();
+      $st_checkDuplicate->prepare($checkDuplicateQuery);
+      $st_checkDuplicate->bind_param("ss", $username, $newClubName);
+      $st_checkDuplicate->execute();
+      $st_checkDuplicate->bind_result($count);
+      $st_checkDuplicate->fetch();
+      $st_checkDuplicate->close(); // Close the statement here
+
+      if ($count == 0) {
+          // The new club name doesn't exist, proceed with the update
+          $q_club = "UPDATE Clubs_in SET club_name = ?, year_joined = ?, long_desc = ? WHERE student_id = ? AND student_club_name = ?";
+          $st_club = $cn->stmt_init();
+          $st_club->prepare($q_club);
+          $st_club->bind_param("sssss", $newClubName, $year, $desc, $username, $originalClubName); // "s" for string
+          $updateResult = $st_club->execute();
+      } else {
+          // The new club name already exists, display an error message
+          echo "<p>Error: The new club name already exists for the user.</p>";
+      }
   }
 
+  $q_club_view = "SELECT * FROM Clubs_in WHERE student_id = ?";
+  $st_club_view = $cn->stmt_init();
+  $st_club_view->prepare($q_club_view);
+  $st_club_view->bind_param("s", $username); // "s" for string
+
+  // execute the statement and bind the result (to vars)
+  $st_club_view->execute();
+  $st_club_view->bind_result($student_id, $club_name, $year, $role, $desc, $size);
+
     // output club information
-    echo "<h2>Course Information</h2>";
+    echo "<h2>Club Information</h2>";
     echo "<table border='1'>";
-    echo "<thead><tr><th>ID</th><th>CID</th><th>Course Name</th><th>Year</th><th>Grade</th><th>Description</th></tr></thead>";
+    echo "<thead><tr><th>ID</th><th>Club Name</th><th>Year</th><th>Role</th><th>Description</th><th>Size</th></tr></thead>";
     echo "<tbody>";
-    while ($st_course_view->fetch()) {
+    while ($st_club_view->fetch()) {
       echo "<tr>";
-      echo "<td>$username</td>";
-      echo "<td>$courseID</td>";
-      echo "<td>$courseName</td>";
+      echo "<td>$student_id</td>";
+      echo "<td>$club_name</td>";
       echo "<td>$year</td>";
-      echo "<td>$grade</td>";
+      echo "<td>$role</td>";
       echo "<td>$desc</td>";
+      echo "<td>$size</td>";
       echo "</tr>";
     }
     echo "</tbody></table>";
 
   // clean up
-  $st_course_view->close();
-  $st_course->close();
+  $st_club->close();
+  $st_club_view->close();
   $cn->close();
 ?>
 </body>
