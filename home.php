@@ -3,7 +3,7 @@
 <h1>Pets by Type</h1>
 <?php
   // get connection info
-  $config = parse_ini_file("config.ini");   // better to hide this!
+  $config = parse_ini_file("config.ini");  
   $server = $config["host"];
   $username = $config["user"];
   $password = $config["password"];

@@ -49,7 +49,7 @@
             margin: 0 1em;
             border-radius: 5px;
             background-color: #9f4576;
-            font-family: 'Roboto', sans-serif; /* Choose your desired font */
+            font-family: 'Roboto', sans-serif; 
         }
 
         form input[type="submit"]:hover {
@@ -96,7 +96,7 @@
 </header>
 <?php
   // get connection info
-  $config = parse_ini_file("config.ini");   // better to hide this!
+  $config = parse_ini_file("config.ini"); 
   $server = $config["host"];
   $username = $config["user"];
   $password = $config["password"];

@@ -3,7 +3,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Data</title>
-    <!-- Add your CSS styling here if needed -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -97,7 +96,7 @@
     </header>
 <?php
   // get connection info
-  $config = parse_ini_file("config.ini");   // better to hide this!
+  $config = parse_ini_file("config.ini");  
   $server = $config["host"];
   $username = $config["user"];
   $password = $config["password"];

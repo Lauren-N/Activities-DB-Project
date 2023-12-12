@@ -2,8 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website</title>
-    <!-- Add your CSS styling here if needed -->
+    <title>Adding Clubs</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -45,16 +44,16 @@
             vertical-align: middle; /* Align vertically with each other */
             font-size: 10px;
             text-decoration: none;
-            color: #fff; /* Text color for the form buttons */
+            color: #fff; 
             padding: 0.5em 1em;
             margin: 0 1em;
             border-radius: 5px;
             background-color: #9f4576;
-            font-family: 'Roboto', sans-serif; /* Choose your desired font */
+            font-family: 'Roboto', sans-serif; 
         }
 
         form input[type="submit"]:hover {
-            background-color: #7c3250; /* Change the background color of the submit button on hover */
+            background-color: #7c3250; 
         }
 
 
@@ -97,7 +96,7 @@
     </header>
 <?php
   // get connection info
-  $config = parse_ini_file("config.ini");   // better to hide this!
+  $config = parse_ini_file("config.ini"); 
   $server = $config["host"];
   $username = $config["user"];
   $password = $config["password"];
