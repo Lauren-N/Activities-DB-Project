@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deleting Clubs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffddf4;
+        }
+
+        header {
+            font-size: 30px;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            background-color: #e75480;
+        }
+        nav form {
+        display: inline-block;
+        }
+
+        nav {
+            background-color: #f49ac2;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+        }
+
+        section {
+            padding: 2em;
+        }
+        form input[type="submit"] {
+            padding: 1em 2em;
+            border: none;
+            border-radius: 8px;
+            margin-right: 50px;
+            display: inline-block; /* Display the elements inline */
+            vertical-align: middle; /* Align vertically with each other */
+            font-size: 10px;
+            text-decoration: none;
+            color: #fff; /* Text color for the form buttons */
+            padding: 0.5em 1em;
+            margin: 0 1em;
+            border-radius: 5px;
+            background-color: #9f4576;
+            font-family: 'Roboto', sans-serif; 
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #7c3250; /* Change the background color of the submit button on hover */
+        }
+
+
+        form input[type="text"] {
+            padding: 0.5em;
+            font-size: 16px;
+            display: inline-block; /* Display the elements inline */
+            vertical-align: middle; /* Align vertically with each other */
+        }
+
+        form select {
+            padding: 0.5em;
+            font-size: 16px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        section p {
+            margin-top: 20px; /* Add some space between the image and the paragraph */
+            font-family: 'Arial', sans-serif;
+            font-size: 15px;
+            line-height: 1.5;
+            font-weight: 400;
+            text-align: left; 
+            color: #ab274f ;
+            padding: 1%;
+            background-color: #fff0f5; /* Background color for the section */
+            border: 1px solid #ff1493; /* Border around the section */
+            border-radius: 8px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); 
+
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Deleting Club Data!</h1>
+    </header>
+    <section>
+        <p>In this section, you are able to delete the different activities, courses, and clubs you have entered!
+            Simply do so by:
+                <br>1. Selecting what type of result you want to add i.e Activities, Courses, or Clubs
+                <br>2. If you do not see your particular activity in the table above, please go to the home page and add it.
+    </section>
+    <form method="POST" action="delete_clubs.php">
+        <table>
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" name="userName"></td>
+                </tr>
+
+                <tr>
+                    <td>Club name:</td>
+                    <td><input type="text" name="clubName"></td>
+                </tr>
+                
+                <td><input type="submit" value="Submit!"/></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
